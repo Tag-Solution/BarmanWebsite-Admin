@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/BarmanWebsite-Admin/static/css/main.94fd9c81.css",
+    "main.js": "/BarmanWebsite-Admin/static/js/main.c7a9b80c.js",
+    "index.html": "/BarmanWebsite-Admin/index.html",
+    "main.94fd9c81.css.map": "/BarmanWebsite-Admin/static/css/main.94fd9c81.css.map",
+    "main.c7a9b80c.js.map": "/BarmanWebsite-Admin/static/js/main.c7a9b80c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.94fd9c81.css",
+    "static/js/main.c7a9b80c.js"
+  ]
+}
