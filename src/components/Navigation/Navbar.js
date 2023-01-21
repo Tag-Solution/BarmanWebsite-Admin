@@ -29,7 +29,7 @@ const Navbar = () => {
 
 const Wrapper = styled.nav`
 	height: 4rem;
-	background: var(--ColorWhite);
+	background: var(--ColorWhiteDark);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -51,13 +51,17 @@ const Wrapper = styled.nav`
 		h2 {
 			text-align: center;
 			font-size: 1.7rem;
-			letter-spacing: 0.2rem;
+			font-weight: 300;
+			font-family: var(--FontTitles);
+			letter-spacing: 0.35rem;
 			color: var(--ColorCrimson);
 		}
 		.logo-text {
 			display: none;
 			margin: 0;
 			font-size: 1rem;
+			font-weight: 300;
+			font-family: var(--FontTexts);
 			letter-spacing: 0.07rem;
 			color: var(--ColorCrimson);
 		}

@@ -15,6 +15,7 @@
 	/* Colors */
 	--ColorBlack: #000000;
 	--ColorWhite: #f7f7f7;
+	--ColorWhiteDark: #efefef78;
 	--ColorBlack-1: #030303;
 	--ColorBlack-85: rgba(3, 3, 3, 0.85);
 	--ColorBlack-7: rgba(3, 3, 3, 0.7);
@@ -23,14 +24,13 @@
 	--ColorBlack-2: rgba(3, 3, 3, 0.2);
 	--ColorBlackHover: #0c0c0c;
 	--ColorGold: #ba8d3e;
-	--ColorGoldService: #ebebeb;
 	--ColorGoldLight: #fafafa;
 	--ColorGoldLight-7: #fafafaab;
 	--ColorCrimson: crimson;
 	--ColorFooterDivider: #505152;
 	--ColorFooterGrey: #d6d6d6;
 	--ColorFooterWhite: #dddddd;
-	--ColorFooterWhiteOP: #f8f8f8c9;
+	--ColorFooterWhiteOP: #eeeeeeeb;
 	--ColorSocialIcons: #bebdbd;
 	--ColorSemiCrimson: rgb(255, 24, 70);
 	--ColorSearchInput: #dddddd83;
