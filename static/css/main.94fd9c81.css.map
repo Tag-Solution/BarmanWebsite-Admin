@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.94fd9c81.css","mappings":"AAAA,EAKC,kBAAmB,CAFnB,qBAAsB,CACtB,UAAY,CAHZ,QAAS,CACT,SAID","sources":["index.css"],"sourcesContent":["* {\n\tmargin: 0;\n\tpadding: 0;\n\tbox-sizing: border-box;\n\tcolor: white;\n\tbackground: #6e6e6e;\n}\n"],"names":[],"sourceRoot":""}
