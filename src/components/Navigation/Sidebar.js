@@ -1,11 +1,23 @@
 import React from "react";
 import styled from "styled-components";
+
+import { useNavigationContext } from "../../context/NavigationContext";
+
+/*
+ * Imports Modificables (Utils)
+ */
 import NavLinks from "./NavLinks";
 
 const Sidebar = () => {
+	const { isSidebarOpen } = useNavigationContext();
+
 	return (
 		<Wrapper>
-			<div className="sidebar-container show-sidebar">
+			<div
+				className={
+					isSidebarOpen ? "sidebar-container show-sidebar" : "sidebar-container"
+				}
+			>
 				<div className="content">
 					<header>
 						<h2>Menu</h2>

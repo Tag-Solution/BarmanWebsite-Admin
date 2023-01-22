@@ -1,23 +1,26 @@
 import React from "react";
-import styled from "styled-components";
 
-import { FaAlignLeft, FaUserCircle, FaCaretDown } from "react-icons/fa";
+import styled from "styled-components";
+import { FaAlignLeft, FaTimes } from "react-icons/fa";
+
+import { useNavigationContext } from "../../context/NavigationContext";
 
 const Navbar = () => {
+	const { openSidebar, closeSidebar, isSidebarOpen } = useNavigationContext();
+
 	return (
 		<Wrapper>
 			<div className="nav-center">
-				<button
-					type="button"
-					className="toggle-btn"
-					onClick={() => {
-						console.log("====================================");
-						console.log("BTN");
-						console.log("====================================");
-					}}
-				>
-					<FaAlignLeft />
-				</button>
+				{isSidebarOpen ? (
+					<button type="button" className="toggle-btn" onClick={closeSidebar}>
+						<FaTimes />
+					</button>
+				) : (
+					<button type="button" className="toggle-btn" onClick={openSidebar}>
+						<FaAlignLeft />
+					</button>
+				)}
+
 				<div>
 					<h2>TAG</h2>
 					<h3 className="logo-text">Solution</h3>

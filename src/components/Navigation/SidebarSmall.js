@@ -1,16 +1,24 @@
 import React from "react";
-import styled from "styled-components";
 
+import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
+
 import NavLinks from "./NavLinks";
 
+import { useNavigationContext } from "../../context/NavigationContext";
+
 const SidebarSmall = () => {
+	const { isSidebarOpen, closeSidebar } = useNavigationContext();
 	return (
 		<Wrapper>
-			<div className="sidebar-container">
+			<div
+				className={
+					isSidebarOpen ? "sidebar-container show-sidebar" : "sidebar-container"
+				}
+			>
 				<div className="content">
 					<button className="close-btn">
-						<FaTimes />
+						<FaTimes onClick={closeSidebar} />
 					</button>
 					<header>
 						<h2>Menu</h2>
