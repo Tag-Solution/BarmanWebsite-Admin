@@ -51,8 +51,8 @@ const Wrapper = styled.aside`
 	}
 	.content {
 		background: var(--ColorWhite);
-		width: 90vw;
-		height: 95vh;
+		width: 80vw;
+		height: 70vh;
 		border-radius: 0.25rem;
 		padding: 4rem 2rem;
 		position: relative;
