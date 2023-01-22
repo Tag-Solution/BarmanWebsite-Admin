@@ -67,19 +67,93 @@ hr {
 	border-top: 1px solid var(--ColorFooterDivider);
 }
 
-/* Classes */
+/* Sections */
+.section {
+	height: 100%;
+}
+.section-center {
+	width: 90%;
+	margin: 0 auto;
+	display: block;
+}
+.section-title {
+	text-align: center;
+	padding-bottom: 3rem;
+}
+.section-title h2 {
+	font-family: var(--FontTitles);
+	font-weight: 500;
+	font-size: 2rem;
+	letter-spacing: 0.15rem;
+	color: var(--ColorCrimson);
+	margin-bottom: 0.35rem;
+}
+.section-title span {
+	font-size: 0.9rem;
+	font-weight: 400;
+	letter-spacing: 0.13rem;
+	color: var(--FontColorGrey);
+}
+
+/* Forms */
+.main-form-container {
+	width: 95%;
+	max-width: 450px;
+	margin: 0 auto;
+}
+.main-form .form-btn-container {
+	width: 100%;
+	text-align: center;
+}
+.single-input {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1.5rem;
+}
+.single-input label {
+	padding-left: 0.25rem;
+	font-family: var(--FontTexts);
+	font-size: 0.9rem;
+	font-weight: 400;
+	letter-spacing: 0.07rem;
+	color: var(--FontColorDark);
+	margin-bottom: 0.15rem;
+}
+.single-input input {
+	height: 2.5rem;
+	border: 1px solid lightgray;
+	border-radius: 0.5rem;
+	font-family: var(--FontTexts);
+	font-size: 1rem;
+	font-weight: 200;
+	letter-spacing: 0.05rem;
+	padding-left: 0.65rem;
+}
+.single-input input::placeholder {
+	font-weight: 400;
+	font-size: 0.9rem;
+	opacity: 0.75;
+}
+
+/* Buttons */
 .main-btn {
 	outline: none;
-	border: 1px solid var(--ColorGold);
-	color: var(--ColorWhite);
+	border: 1px solid var(--ColorCrimson);
+	color: var(--ColorCrimson);
+	background: transparent;
 	padding: 0.4rem 0.6rem;
+	margin-top: 1.5rem;
+	font-size: 1.1rem;
+	font-weight: 300;
+	letter-spacing: 0.2rem;
+	text-transform: uppercase;
 	cursor: pointer;
 	transition: var(--MainTransition);
-	font-family: var(--FontTitles);
 }
 .main-btn:hover {
-	background: var(--ColorGold);
-	border: 1px solid var(--ColorGold);
+	background: var(--ColorCrimson);
+	border: 1px solid var(--ColorCrimson);
+	color: var(--ColorWhite);
 }
 
 /* ======================================================================== */
@@ -90,11 +164,16 @@ hr {
     768px
     980px
     1150px
-  +
 */
-/* 
-::: Nav and Footer Heights ::::
-    Mobile: 10rem;
-    768px: 11.3rem
-    980px: 11.5rem;
-*/
+
+@media (min-width: 980px) {
+	.section-title span {
+		font-size: 1.1rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.section-title span {
+		font-size: 1.3rem;
+	}
+}
