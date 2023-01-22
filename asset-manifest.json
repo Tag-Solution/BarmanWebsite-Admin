@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/BarmanWebsite-Admin/static/css/main.cda86d81.css",
-    "main.js": "/BarmanWebsite-Admin/static/js/main.7e646132.js",
+    "main.js": "/BarmanWebsite-Admin/static/js/main.aeae1fb9.js",
     "index.html": "/BarmanWebsite-Admin/index.html",
     "main.cda86d81.css.map": "/BarmanWebsite-Admin/static/css/main.cda86d81.css.map",
-    "main.7e646132.js.map": "/BarmanWebsite-Admin/static/js/main.7e646132.js.map"
+    "main.aeae1fb9.js.map": "/BarmanWebsite-Admin/static/js/main.aeae1fb9.js.map"
   },
   "entrypoints": [
     "static/css/main.cda86d81.css",
-    "static/js/main.7e646132.js"
+    "static/js/main.aeae1fb9.js"
   ]
 }
