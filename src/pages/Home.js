@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { AiOutlineCloudUpload } from "react-icons/ai";
 
 import { useHomepageContext } from "../context/HomeContext";
 
 const Home = () => {
+	const [fileName, setFileName] = useState(null);
+	const [data, setData] = useState({
+		home: {
+			title: "",
+			subtitle: "",
+			date: "",
+			direction: "",
+			buttonId: 5,
+		},
+		postImages: {},
+	});
 	const { homepage, homepage_loading, homepage_error } = useHomepageContext();
-	console.log("====================================");
-	console.log(homepage);
-	console.log("====================================");
+
+	// FileInput:
+	const handleFileName = (e) => {
+		const image = document.getElementById("image").files[0];
+		if (image.name) {
+			setFileName(image.name);
+		}
+	};
+	// Handle Data:
+	const handleData = (e) => {
+		const newData = { ...data };
+		newData.home[e.target.id] = e.target.value;
+		newData.postImages = document.getElementById("image").files[0];
+		setData(newData);
+	};
+	// onSubmit:
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(data);
+	};
 
 	if (homepage_error) {
 		return (
@@ -39,7 +68,7 @@ const Home = () => {
 							<span>Edit Homepage Information</span>
 						</div>
 						<div className="main-form-container">
-							<form className="main-form">
+							<form className="main-form" onSubmit={handleSubmit}>
 								{/* Single Input */}
 								<div className="single-input">
 									<label htmlFor="title">Title</label>
@@ -48,22 +77,36 @@ const Home = () => {
 										name="title"
 										id="title"
 										placeholder="Title"
+										onChange={(e) => {
+											handleData(e);
+										}}
 									/>
 								</div>
 								{/* Single Input */}
 								<div className="single-input">
-									<label htmlFor="title">Subtitle</label>
+									<label htmlFor="subtitle">Subtitle</label>
 									<input
 										type="text"
 										name="subtitle"
 										id="subtitle"
 										placeholder="Subtitle"
+										onChange={(e) => {
+											handleData(e);
+										}}
 									/>
 								</div>
 								{/* Single Input */}
 								<div className="single-input">
 									<label htmlFor="date">Date</label>
-									<input type="text" name="date" id="date" placeholder="Date" />
+									<input
+										type="text"
+										name="date"
+										id="date"
+										placeholder="Date"
+										onChange={(e) => {
+											handleData(e);
+										}}
+									/>
 								</div>
 								{/* Single Input */}
 								<div className="single-input">
@@ -73,7 +116,27 @@ const Home = () => {
 										name="direction"
 										id="direction"
 										placeholder="Direction"
+										onChange={(e) => {
+											handleData(e);
+										}}
 									/>
+								</div>
+								{/* Single Input */}
+								<div>
+									<label htmlFor="image" className="file-input">
+										<input
+											type="file"
+											name="image"
+											className="custom-file-input"
+											id="image"
+											onChange={(e) => {
+												handleFileName(e);
+												handleData(e);
+											}}
+										/>
+										{fileName ? <span>{fileName}</span> : "Home Background"}
+										<AiOutlineCloudUpload id="foto-icon"></AiOutlineCloudUpload>
+									</label>
 								</div>
 								{/* Submit Form */}
 								<div className="form-btn-container">

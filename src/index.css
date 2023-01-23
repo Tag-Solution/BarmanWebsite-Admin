@@ -134,6 +134,34 @@ hr {
 	font-size: 0.9rem;
 	opacity: 0.75;
 }
+.file-input {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	height: 3.2rem;
+	margin-bottom: 1.3rem;
+	border: 1px solid lightgray;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	letter-spacing: 0.1rem;
+	font-family: var(--FontTexts);
+	color: var(--FontColorDark);
+	cursor: pointer;
+	transition: var(--MainTransition);
+}
+.file-input input {
+	display: none;
+}
+.file-input:hover {
+	border: 1px solid crimson;
+}
+#foto-icon {
+	margin-left: 1rem;
+	font-size: 2.5rem;
+	color: var(--ColorCrimson);
+	transition: var(--MainTransition);
+}
 
 /* Buttons */
 .main-btn {
