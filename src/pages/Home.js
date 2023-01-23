@@ -1,16 +1,18 @@
 import React, { useState } from "react";
+import axios from "axios";
 import styled from "styled-components";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
 import { useHomepageContext } from "../context/HomeContext";
+import { API_HOME_POST } from "../utils/api_constants";
 
 const Home = () => {
 	const [fileName, setFileName] = useState(null);
 	const [data, setData] = useState({
 		home: {
+			date: "",
 			title: "",
 			subtitle: "",
-			date: "",
 			direction: "",
 			buttonId: 5,
 		},
@@ -32,10 +34,37 @@ const Home = () => {
 		newData.postImages = document.getElementById("image").files[0];
 		setData(newData);
 	};
-	// onSubmit:
+
+	/*
+	 * onSubmit
+	 */
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(data);
+		var homepageForm = new FormData();
+		homepageForm.append(
+			"home",
+			new Blob([JSON.stringify(data.home)], { type: "application/json" })
+		);
+		if (data.postImages === undefined) {
+			homepageForm.append(
+				"postImages",
+				new Blob([data.postImages], { type: "form-data" })
+			);
+		} else {
+			homepageForm.append("postImages", data.postImages);
+		}
+		// new Response(userFormData).text().then(console.log); // To see the entire raw body
+		return axios
+			.post(API_HOME_POST, homepageForm, {
+				headers: {
+					"Content-Type": "multipart/form-data",
+				},
+			})
+			.then((response) => {
+				console.log("====================================");
+				console.log(response.data);
+				console.log("====================================");
+			});
 	};
 
 	if (homepage_error) {
@@ -68,7 +97,7 @@ const Home = () => {
 							<span>Edit Homepage Information</span>
 						</div>
 						<div className="main-form-container">
-							<form className="main-form" onSubmit={handleSubmit}>
+							<form className="main-form" id="homeForm" onSubmit={handleSubmit}>
 								{/* Single Input */}
 								<div className="single-input">
 									<label htmlFor="title">Title</label>
