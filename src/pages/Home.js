@@ -40,9 +40,6 @@ const Home = () => {
 	const handleBtnRequest = (e) => {
 		const newData = { ...data };
 		newData.home.buttonRequest[e.target.id] = e.target.value;
-		console.log("====================================");
-		console.log(newData);
-		console.log("====================================");
 		setData(newData);
 	};
 
