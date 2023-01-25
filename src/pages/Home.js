@@ -14,7 +14,10 @@ const Home = () => {
 			title: "",
 			subtitle: "",
 			direction: "",
-			buttonId: 5,
+			buttonRequest: {
+				url: "",
+				title: "",
+			},
 		},
 		postImages: {},
 	});
@@ -32,6 +35,14 @@ const Home = () => {
 		const newData = { ...data };
 		newData.home[e.target.id] = e.target.value;
 		newData.postImages = document.getElementById("image").files[0];
+		setData(newData);
+	};
+	const handleBtnRequest = (e) => {
+		const newData = { ...data };
+		newData.home.buttonRequest[e.target.id] = e.target.value;
+		console.log("====================================");
+		console.log(newData);
+		console.log("====================================");
 		setData(newData);
 	};
 
@@ -147,6 +158,32 @@ const Home = () => {
 										placeholder="Direction"
 										onChange={(e) => {
 											handleData(e);
+										}}
+									/>
+								</div>
+								{/* Single Input */}
+								<div className="single-input">
+									<label htmlFor="buttonUrl">Button URL</label>
+									<input
+										type="text"
+										name="buttonUrl"
+										id="url"
+										placeholder="Button URL"
+										onChange={(e) => {
+											handleBtnRequest(e);
+										}}
+									/>
+								</div>
+								{/* Single Input */}
+								<div className="single-input">
+									<label htmlFor="buttonTitle">Button Title</label>
+									<input
+										type="text"
+										name="buttonTitle"
+										id="title"
+										placeholder="Button Title"
+										onChange={(e) => {
+											handleBtnRequest(e);
 										}}
 									/>
 								</div>
