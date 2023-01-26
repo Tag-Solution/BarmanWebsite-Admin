@@ -1,6 +1,8 @@
 // Navigation:
 export const SIDEBAR_OPEN = "SIDEBAR_OPEN";
 export const SIDEBAR_CLOSE = "SIDEBAR_CLOSE";
+export const GENERIC_MODAL_OPEN = "GENERIC_MODAL_OPEN";
+export const GENERIC_MODAL_CLOSE = "GENERIC_MODAL_CLOSE";
 
 // Homepage:
 export const GET_HOMEPAGE = "GET_HOMEPAGE";

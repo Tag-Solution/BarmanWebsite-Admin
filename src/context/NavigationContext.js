@@ -1,10 +1,16 @@
 import React, { useContext, useReducer } from "react";
 
-import { SIDEBAR_OPEN, SIDEBAR_CLOSE } from "../actions";
+import {
+	SIDEBAR_OPEN,
+	SIDEBAR_CLOSE,
+	GENERIC_MODAL_OPEN,
+	GENERIC_MODAL_CLOSE,
+} from "../actions";
 import reducer from "../reducers/navigation_reducer";
 
 const initialState = {
 	isSidebarOpen: false,
+	isGenericModalOpen: false,
 };
 
 const NavigationContext = React.createContext();
@@ -18,6 +24,12 @@ export const NavigationProvider = ({ children }) => {
 	const closeSidebar = () => {
 		dispatch({ type: SIDEBAR_CLOSE });
 	};
+	const openGenericModal = () => {
+		dispatch({ type: GENERIC_MODAL_OPEN });
+	};
+	const closeGenericModal = () => {
+		dispatch({ type: GENERIC_MODAL_CLOSE });
+	};
 
 	return (
 		<NavigationContext.Provider
@@ -25,6 +37,8 @@ export const NavigationProvider = ({ children }) => {
 				...state,
 				openSidebar,
 				closeSidebar,
+				openGenericModal,
+				closeGenericModal,
 			}}
 		>
 			{children}
