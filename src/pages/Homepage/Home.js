@@ -3,11 +3,12 @@ import axios from "axios";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
 import { useHomepageContext } from "../../context/HomeContext";
+import { useNavigationContext } from "../../context/NavigationContext";
 
-import { Preloader } from "../Preloader";
+import { Preloader } from "../../pages";
+import { GenericModal } from "../../components";
 
 import { API_HOME_POST } from "../../utils/api_constants";
-import GenericModal from "../../components/GenericModal/GenericModal";
 
 const Home = () => {
 	const [fileName, setFileName] = useState(null);
@@ -26,6 +27,7 @@ const Home = () => {
 	});
 
 	const { homepage, homepage_loading, homepage_error } = useHomepageContext();
+	const { isGenericModalOpen, openGenericModal } = useNavigationContext();
 
 	// FileInput:
 	const handleFileName = (e) => {
@@ -73,9 +75,7 @@ const Home = () => {
 				},
 			})
 			.then((response) => {
-				console.log("====================================");
-				console.log(response.data);
-				console.log("====================================");
+				openGenericModal();
 			});
 	};
 
@@ -96,7 +96,14 @@ const Home = () => {
 
 	return (
 		<>
-			<GenericModal></GenericModal>
+			{isGenericModalOpen && (
+				<GenericModal
+					title="OK!"
+					text="Homepage Uploaded successfully. Will be redirected to homepage."
+					path="/"
+					btnText="Confirm"
+				></GenericModal>
+			)}
 			{homepage && (
 				<main className="section">
 					<div className="section-center">

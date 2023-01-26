@@ -1,16 +1,30 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const GenericModal = () => {
+import { useNavigationContext } from "../../context/NavigationContext";
+
+const GenericModal = ({ title, text, path, btnText }) => {
+	const { isGenericModalOpen, closeGenericModal } = useNavigationContext();
+
 	return (
-		<Wrapper>
+		<Wrapper
+			style={isGenericModalOpen ? { display: "block" } : { display: "none" }}
+		>
 			<div className="modal-container">
 				<div className="section-center">
 					<div className="modal-info-container">
-						<h2>Generic Modal</h2>
-						<p>Lorem ipsum dolor sit amet consectetur.</p>
+						<h2>{title}</h2>
+						<p>{text}</p>
 						<div className="btn-container">
-							<span>Accept</span>
+							<Link
+								to={path}
+								onClick={() => {
+									closeGenericModal();
+								}}
+							>
+								{btnText}
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -30,12 +44,13 @@ const Wrapper = styled.main`
 	transition: var(--MainTransition);
 	.modal-container {
 		width: 80%;
-		height: 8rem;
+		height: 10rem;
 		max-width: 25rem;
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		border-radius: 0.65rem;
 		background: var(--ColorWhite);
 		display: flex;
 		align-items: center;
@@ -44,7 +59,7 @@ const Wrapper = styled.main`
 			flex-direction: column;
 			align-items: center;
 			justify-content: space-around;
-			height: 6.5rem;
+			height: 8rem;
 			text-align: center;
 			h2 {
 				font-family: var(--FontTitles);
@@ -58,7 +73,7 @@ const Wrapper = styled.main`
 				font-size: 0.85rem;
 				font-weight: 500;
 				color: var(--FontColorDark);
-				margin-top: -0.7rem;
+				margin-top: -1.2rem;
 			}
 			.btn-container {
 				margin: 0 auto;
@@ -81,5 +96,4 @@ const Wrapper = styled.main`
 		}
 	}
 `;
-
 export default GenericModal;
