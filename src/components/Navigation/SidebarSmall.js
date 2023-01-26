@@ -11,21 +11,27 @@ const SidebarSmall = () => {
 	const { isSidebarOpen, closeSidebar } = useNavigationContext();
 	return (
 		<Wrapper>
-			<div
-				className={
-					isSidebarOpen ? "sidebar-container show-sidebar" : "sidebar-container"
-				}
-			>
-				<div className="content">
-					<button className="close-btn">
-						<FaTimes onClick={closeSidebar} />
-					</button>
-					<header>
-						<h2>Menu</h2>
-					</header>
-					<NavLinks></NavLinks>
-				</div>
-			</div>
+			{isSidebarOpen && (
+				<>
+					<div
+						className={
+							isSidebarOpen
+								? "sidebar-container show-sidebar"
+								: "sidebar-container"
+						}
+					>
+						<div className="content">
+							<button className="close-btn">
+								<FaTimes onClick={closeSidebar} />
+							</button>
+							<header>
+								<h2>Menu</h2>
+							</header>
+							<NavLinks></NavLinks>
+						</div>
+					</div>
+				</>
+			)}
 		</Wrapper>
 	);
 };
