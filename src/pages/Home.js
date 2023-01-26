@@ -21,6 +21,7 @@ const Home = () => {
 		},
 		postImages: {},
 	});
+
 	const { homepage, homepage_loading, homepage_error } = useHomepageContext();
 
 	// FileInput:
@@ -75,6 +76,13 @@ const Home = () => {
 			});
 	};
 
+	if (homepage_loading) {
+		return (
+			<>
+				<h2>Loading...</h2>
+			</>
+		);
+	}
 	if (homepage_error) {
 		return (
 			<>
@@ -82,22 +90,10 @@ const Home = () => {
 			</>
 		);
 	}
-	/* 
-	const {
-		id: homepageId,
-		title,
-		subtitle,
-		date,
-		direction,
-		buttonResponse,
-		imageResponses,
-	} = homepage;
- */
+
 	return (
 		<>
-			{homepage_loading ? (
-				<h2>Loading....</h2>
-			) : (
+			{homepage && (
 				<Wrapper className="section">
 					<div className="section-center">
 						<div className="section-title">
