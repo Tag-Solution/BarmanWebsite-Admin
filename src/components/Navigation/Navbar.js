@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 import { FaAlignLeft, FaTimes } from "react-icons/fa";
@@ -22,7 +23,9 @@ const Navbar = () => {
 				)}
 
 				<div>
-					<h2>TAG</h2>
+					<Link to="/" onClick={closeSidebar}>
+						TAG
+					</Link>
 					<h3 className="logo-text">Solution</h3>
 				</div>
 			</div>
@@ -51,7 +54,7 @@ const Wrapper = styled.nav`
 			display: flex;
 			align-items: center;
 		}
-		h2 {
+		a {
 			text-align: center;
 			font-size: 1.7rem;
 			font-weight: 300;
