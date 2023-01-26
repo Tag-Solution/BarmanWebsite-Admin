@@ -4,7 +4,8 @@ import { AiOutlineCloudUpload } from "react-icons/ai";
 
 import { useHomepageContext } from "../../context/HomeContext";
 
-import { Preloader } from "../Preloader";
+import { Preloader } from "../../pages";
+import { GenericModal } from "../../components";
 
 import { API_HOME_POST } from "../../utils/api_constants";
 
@@ -95,6 +96,7 @@ const Home = () => {
 
 	return (
 		<>
+			<GenericModal></GenericModal>
 			{homepage && (
 				<main className="section">
 					<div className="section-center">

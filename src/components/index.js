@@ -1,3 +1,4 @@
 import { App } from "./App";
 import { SharedLayout } from "./SharedLayout";
-export { App, SharedLayout };
+import { GenericModal } from "./GenericModal";
+export { App, SharedLayout, GenericModal };
