@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import styled from "styled-components";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
-import { useHomepageContext } from "../context/HomeContext";
-import { API_HOME_POST } from "../utils/api_constants";
+import { useHomepageContext } from "../../context/HomeContext";
+
+import { Preloader } from "../Preloader";
+
+import { API_HOME_POST } from "../../utils/api_constants";
 
 const Home = () => {
 	const [fileName, setFileName] = useState(null);
@@ -79,7 +81,7 @@ const Home = () => {
 	if (homepage_loading) {
 		return (
 			<>
-				<h2>Loading...</h2>
+				<Preloader></Preloader>
 			</>
 		);
 	}
@@ -94,7 +96,7 @@ const Home = () => {
 	return (
 		<>
 			{homepage && (
-				<Wrapper className="section">
+				<main className="section">
 					<div className="section-center">
 						<div className="section-title">
 							<h2>Homepage</h2>
@@ -206,12 +208,10 @@ const Home = () => {
 							</form>
 						</div>
 					</div>
-				</Wrapper>
+				</main>
 			)}
 		</>
 	);
 };
-
-const Wrapper = styled.main``;
 
 export default Home;
