@@ -7,6 +7,7 @@ import { useHomepageContext } from "../../context/HomeContext";
 import { Preloader } from "../Preloader";
 
 import { API_HOME_POST } from "../../utils/api_constants";
+import GenericModal from "../../components/GenericModal/GenericModal";
 
 const Home = () => {
 	const [fileName, setFileName] = useState(null);
@@ -95,6 +96,7 @@ const Home = () => {
 
 	return (
 		<>
+			<GenericModal></GenericModal>
 			{homepage && (
 				<main className="section">
 					<div className="section-center">
