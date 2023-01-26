@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
@@ -25,7 +26,9 @@ const SidebarSmall = () => {
 								<FaTimes onClick={closeSidebar} />
 							</button>
 							<header>
-								<h2>Menu</h2>
+								<Link to="/" onClick={closeSidebar}>
+									Menu
+								</Link>
 							</header>
 							<NavLinks></NavLinks>
 						</div>
@@ -75,14 +78,12 @@ const Wrapper = styled.aside`
 			color: var(--ColorCrimson);
 			cursor: pointer;
 		}
-		header {
-			h2 {
-				font-size: 2rem;
-				letter-spacing: 0.4rem;
-				font-weight: 600;
-				color: var(--FontColorDark);
-				font-family: var(--FontTitles);
-			}
+		header > * {
+			font-size: 2rem;
+			letter-spacing: 0.4rem;
+			font-weight: 600;
+			color: var(--FontColorDark);
+			font-family: var(--FontTitles);
 		}
 	}
 	// NavLinks

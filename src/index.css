@@ -67,6 +67,11 @@ hr {
 	border-top: 1px solid var(--ColorFooterDivider);
 }
 
+.max-width-container-900 {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
 /* Sections */
 .section {
 	height: 100%;

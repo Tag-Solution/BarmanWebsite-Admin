@@ -1,13 +1,13 @@
 // Routes:
 export const links = [
 	{
-		id: 1,
+		id: 2,
 		text: "Home",
-		path: "/",
+		path: "/home",
 		icon: null,
 	},
 	{
-		id: 2,
+		id: 3,
 		text: "Images",
 		path: "/images",
 		icon: null,

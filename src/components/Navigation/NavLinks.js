@@ -11,7 +11,7 @@ const NavLinks = () => {
 	return (
 		<div className="nav-links">
 			{links.map((link) => {
-				const { text, path, id, icon } = link;
+				const { text, path, id } = link;
 				return (
 					<NavLink
 						to={path}
