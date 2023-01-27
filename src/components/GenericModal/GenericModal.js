@@ -70,7 +70,7 @@ const Wrapper = styled.main`
 			flex-direction: column;
 			align-items: center;
 			justify-content: space-around;
-			height: 8rem;
+			height: 8.75rem;
 			text-align: center;
 			h2 {
 				font-family: var(--FontTitles);
@@ -81,24 +81,28 @@ const Wrapper = styled.main`
 			}
 			p {
 				font-family: var(--FontTexts);
-				font-size: 0.85rem;
+				font-size: 0.8rem;
 				font-weight: 500;
 				color: var(--FontColorDark);
+				margin-bottom: 0.5rem;
 				.external-url {
 					display: block;
+					width: 7.2rem;
+					margin: 0 auto;
 					text-decoration: underline;
-					color: inherit;
+					color: var(--ColorBlue);
+					font-size: 0.8rem;
 					font-weight: 600;
 					letter-spacing: 0.1rem;
 					cursor: pointer;
+					margin-top: 0.4rem;
 				}
-				margin-bottom: 0.7rem;
 			}
 			.btn-container {
 				margin: 0 auto;
 				padding: 0.3rem 0.4rem;
 				color: var(--ColorCrimson);
-				font-size: 0.8rem;
+				font-size: 0.7rem;
 				font-weight: 700;
 				letter-spacing: 0.2rem;
 				font-family: var(--FontTitles);
