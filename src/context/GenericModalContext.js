@@ -5,6 +5,7 @@ import reducer from "../reducers/generic_modal_reducer";
 
 const initialState = {
 	isGenericModalOpen: false,
+	typeOfModal: "",
 };
 
 const GenericModalContext = React.createContext();
@@ -12,8 +13,8 @@ const GenericModalContext = React.createContext();
 export const GenericModalProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	const openGenericModal = () => {
-		dispatch({ type: GENERIC_MODAL_OPEN });
+	const openGenericModal = (typeOfModal) => {
+		dispatch({ type: GENERIC_MODAL_OPEN, payload: typeOfModal });
 	};
 	const closeGenericModal = () => {
 		dispatch({ type: GENERIC_MODAL_CLOSE });

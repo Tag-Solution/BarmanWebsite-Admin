@@ -9,6 +9,7 @@ import { Preloader } from "../../pages";
 import { GenericModal } from "../../components";
 
 import { API_HOME_POST } from "../../utils/api_constants";
+import { type } from "@testing-library/user-event/dist/type";
 
 const Home = () => {
 	const [fileName, setFileName] = useState(null);
@@ -27,7 +28,8 @@ const Home = () => {
 	});
 
 	const { homepage, homepage_loading, homepage_error } = useHomepageContext();
-	const { isGenericModalOpen, openGenericModal } = useGenericModalContext();
+	const { isGenericModalOpen, openGenericModal, typeOfModal } =
+		useGenericModalContext();
 
 	// FileInput:
 	const handleFileName = (e) => {
@@ -48,6 +50,9 @@ const Home = () => {
 		newData.home.buttonRequest[e.target.id] = e.target.value;
 		setData(newData);
 	};
+	useEffect(() => {
+		openGenericModal("ERROR");
+	}, []);
 
 	/*
 	 * onSubmit
@@ -68,6 +73,7 @@ const Home = () => {
 			homepageForm.append("postImages", data.postImages);
 		}
 		// new Response(userFormData).text().then(console.log); // To see the entire raw body
+
 		return axios
 			.post(API_HOME_POST, homepageForm, {
 				headers: {
@@ -75,10 +81,10 @@ const Home = () => {
 				},
 			})
 			.then((response) => {
-				openGenericModal();
+				openGenericModal("SUCCESS");
 			})
 			.catch((e) => {
-				openGenericModal();
+				openGenericModal("ERROR");
 			});
 	};
 
@@ -98,15 +104,25 @@ const Home = () => {
 	}
 	return (
 		<>
-			{isGenericModalOpen && (
-				<GenericModal
-					title="Success!"
-					text="Enviado con exito. Ya mismo podes ver el resultado online! (Se abrira en una nueva ventana)"
-					externalUrl="https://tag-solution.github.io/BarmanWebsite-Frontend/"
-					path="/"
-					btnText="Confirm"
-				></GenericModal>
-			)}
+			{isGenericModalOpen &&
+				(typeOfModal === "SUCCESS")(
+					<GenericModal
+						title="Success!"
+						text="Enviado con exito. Ya mismo podes ver el resultado online! (Se abrira en una nueva ventana)"
+						externalUrl="https://tag-solution.github.io/BarmanWebsite-Frontend/"
+						path="/"
+						btnText="Confirm"
+					></GenericModal>
+				)}
+			{isGenericModalOpen &&
+				(typeOfModal === "ERROR")(
+					<GenericModal
+						title="Error!"
+						text="Ocurrio un error al enviar los datos. Volveremos al Homepage."
+						path="/"
+						btnText="Salir"
+					></GenericModal>
+				)}
 			{homepage && (
 				<main className="section">
 					<div className="section-center">
