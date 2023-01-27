@@ -76,6 +76,9 @@ const Home = () => {
 			})
 			.then((response) => {
 				openGenericModal();
+			})
+			.catch((e) => {
+				openGenericModal();
 			});
 	};
 
