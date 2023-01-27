@@ -146,7 +146,7 @@ const Home = () => {
 										type="text"
 										name="date"
 										id="date"
-										placeholder="Date"
+										placeholder="Ex: Since 1989"
 										onChange={(e) => {
 											handleData(e);
 										}}
@@ -159,7 +159,7 @@ const Home = () => {
 										type="text"
 										name="direction"
 										id="direction"
-										placeholder="Direction"
+										placeholder="Ex: @Instagram"
 										onChange={(e) => {
 											handleData(e);
 										}}
@@ -167,12 +167,12 @@ const Home = () => {
 								</div>
 								{/* Single Input */}
 								<div className="single-input">
-									<label htmlFor="buttonUrl">Button URL</label>
+									<label htmlFor="buttonUrl">Button URL ("/path")</label>
 									<input
 										type="text"
 										name="buttonUrl"
 										id="url"
-										placeholder="Button URL"
+										placeholder="Ex: /about-us or /products"
 										onChange={(e) => {
 											handleBtnRequest(e);
 										}}
@@ -185,7 +185,7 @@ const Home = () => {
 										type="text"
 										name="buttonTitle"
 										id="title"
-										placeholder="Button Title"
+										placeholder="Ex: View Menu!"
 										onChange={(e) => {
 											handleBtnRequest(e);
 										}}
