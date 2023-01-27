@@ -3,7 +3,7 @@ import axios from "axios";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
 import { useHomepageContext } from "../../context/HomeContext";
-import { useNavigationContext } from "../../context/NavigationContext";
+import { useGenericModalContext } from "../../context/GenericModalContext";
 
 import { Preloader } from "../../pages";
 import { GenericModal } from "../../components";
@@ -27,7 +27,7 @@ const Home = () => {
 	});
 
 	const { homepage, homepage_loading, homepage_error } = useHomepageContext();
-	const { isGenericModalOpen, openGenericModal } = useNavigationContext();
+	const { isGenericModalOpen, openGenericModal } = useGenericModalContext();
 
 	// FileInput:
 	const handleFileName = (e) => {
@@ -93,13 +93,13 @@ const Home = () => {
 			</>
 		);
 	}
-
 	return (
 		<>
 			{isGenericModalOpen && (
 				<GenericModal
-					title="OK!"
-					text="Homepage Uploaded successfully. Will be redirected to homepage."
+					title="Success!"
+					text="Enviado con exito. Ya mismo podes ver el resultado online! (Se abrira en una nueva ventana)"
+					externalUrl="https://tag-solution.github.io/BarmanWebsite-Frontend/"
 					path="/"
 					btnText="Confirm"
 				></GenericModal>

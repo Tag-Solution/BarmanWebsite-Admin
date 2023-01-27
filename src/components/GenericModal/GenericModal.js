@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { useNavigationContext } from "../../context/NavigationContext";
+import { useGenericModalContext } from "../../context/GenericModalContext";
 
-const GenericModal = ({ title, text, path, btnText }) => {
-	const { isGenericModalOpen, closeGenericModal } = useNavigationContext();
+const GenericModal = ({ title, text, path, btnText, externalUrl }) => {
+	const { isGenericModalOpen, closeGenericModal } = useGenericModalContext();
 
 	return (
 		<Wrapper
@@ -15,7 +15,18 @@ const GenericModal = ({ title, text, path, btnText }) => {
 				<div className="section-center">
 					<div className="modal-info-container">
 						<h2>{title}</h2>
-						<p>{text}</p>
+						<p>
+							{text}
+							{"\n"}
+							<a
+								className="external-url"
+								href={externalUrl}
+								target="_blank"
+								rel="noreferrer"
+							>
+								Ver Deploy!
+							</a>
+						</p>
 						<div className="btn-container">
 							<Link
 								to={path}
@@ -73,13 +84,21 @@ const Wrapper = styled.main`
 				font-size: 0.85rem;
 				font-weight: 500;
 				color: var(--FontColorDark);
-				margin-top: -1.2rem;
+				.external-url {
+					display: block;
+					text-decoration: underline;
+					color: inherit;
+					font-weight: 600;
+					letter-spacing: 0.1rem;
+					cursor: pointer;
+				}
+				margin-bottom: 0.7rem;
 			}
 			.btn-container {
 				margin: 0 auto;
 				padding: 0.3rem 0.4rem;
 				color: var(--ColorCrimson);
-				font-size: 1rem;
+				font-size: 0.8rem;
 				font-weight: 700;
 				letter-spacing: 0.2rem;
 				font-family: var(--FontTitles);
