@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
@@ -86,6 +86,10 @@ const Home = () => {
 				openGenericModal(GENERIC_MODAL_ERROR);
 			});
 	};
+
+	useEffect(() => {
+		openGenericModal(GENERIC_MODAL_SUCCESS);
+	}, []);
 
 	if (homepage_loading) {
 		return (

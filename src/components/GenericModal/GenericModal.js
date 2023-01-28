@@ -65,7 +65,7 @@ const Wrapper = styled.main`
 	.modal-container {
 		width: 80%;
 		height: 10rem;
-		max-width: 25rem;
+		max-width: 30rem;
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -100,7 +100,6 @@ const Wrapper = styled.main`
 					margin: 0 auto;
 					text-decoration: underline;
 					color: var(--ColorBlue);
-					font-size: 0.8rem;
 					font-weight: 600;
 					letter-spacing: 0.1rem;
 					cursor: pointer;
@@ -109,7 +108,8 @@ const Wrapper = styled.main`
 			}
 			.btn-container {
 				margin: 0 auto;
-				padding: 0.3rem 0.4rem;
+				padding: 0.4rem 0.6rem;
+				border-radius: 0.2rem;
 				color: var(--ColorCrimson);
 				font-size: 0.7rem;
 				font-weight: 700;
@@ -124,6 +124,26 @@ const Wrapper = styled.main`
 				color: var(--ColorWhite);
 				background: var(--ColorCrimson);
 				border: 1px solid var(--ColorCrimson);
+			}
+		}
+	}
+	@media (min-width: 980px) {
+		.modal-container {
+			height: 12rem;
+			.modal-info-container {
+				height: 11rem;
+				h2 {
+					font-size: 1.2rem;
+				}
+				p {
+					font-size: 0.9rem;
+					.external-url {
+						width: 8.2rem;
+					}
+				}
+				.btn-container {
+					font-size: 1rem;
+				}
 			}
 		}
 	}
