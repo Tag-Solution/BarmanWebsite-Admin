@@ -13,8 +13,8 @@ const GenericModalContext = React.createContext();
 export const GenericModalProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	const openGenericModal = (typeOfModal) => {
-		dispatch({ type: GENERIC_MODAL_OPEN, payload: typeOfModal });
+	const openGenericModal = (isModalError) => {
+		dispatch({ type: GENERIC_MODAL_OPEN, payload: isModalError });
 	};
 	const closeGenericModal = () => {
 		dispatch({ type: GENERIC_MODAL_CLOSE });

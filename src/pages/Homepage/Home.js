@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
@@ -8,8 +8,11 @@ import { useGenericModalContext } from "../../context/GenericModalContext";
 import { Preloader } from "../../pages";
 import { GenericModal } from "../../components";
 
+import {
+	GENERIC_MODAL_ERROR,
+	GENERIC_MODAL_SUCCESS,
+} from "../../utils/api_constants";
 import { API_HOME_POST } from "../../utils/api_constants";
-import { type } from "@testing-library/user-event/dist/type";
 
 const Home = () => {
 	const [fileName, setFileName] = useState(null);
@@ -50,10 +53,6 @@ const Home = () => {
 		newData.home.buttonRequest[e.target.id] = e.target.value;
 		setData(newData);
 	};
-	useEffect(() => {
-		openGenericModal("ERROR");
-	}, []);
-
 	/*
 	 * onSubmit
 	 */
@@ -80,11 +79,11 @@ const Home = () => {
 					"Content-Type": "multipart/form-data",
 				},
 			})
-			.then((response) => {
-				openGenericModal("SUCCESS");
+			.then(() => {
+				openGenericModal(GENERIC_MODAL_SUCCESS);
 			})
-			.catch((e) => {
-				openGenericModal("ERROR");
+			.catch(() => {
+				openGenericModal(GENERIC_MODAL_ERROR);
 			});
 	};
 
@@ -104,25 +103,24 @@ const Home = () => {
 	}
 	return (
 		<>
-			{isGenericModalOpen &&
-				(typeOfModal === "SUCCESS")(
-					<GenericModal
-						title="Success!"
-						text="Enviado con exito. Ya mismo podes ver el resultado online! (Se abrira en una nueva ventana)"
-						externalUrl="https://tag-solution.github.io/BarmanWebsite-Frontend/"
-						path="/"
-						btnText="Confirm"
-					></GenericModal>
-				)}
-			{isGenericModalOpen &&
-				(typeOfModal === "ERROR")(
-					<GenericModal
-						title="Error!"
-						text="Ocurrio un error al enviar los datos. Volveremos al Homepage."
-						path="/"
-						btnText="Salir"
-					></GenericModal>
-				)}
+			{isGenericModalOpen && typeOfModal === GENERIC_MODAL_SUCCESS && (
+				<GenericModal
+					title="Success!"
+					text="Enviado con exito. Ya mismo podes ver el resultado online!"
+					externalUrl="https://tag-solution.github.io/BarmanWebsite-Frontend/"
+					externalUrlBtnText="Ver Cambios!"
+					path="/"
+					btnText="OK!"
+				></GenericModal>
+			)}
+			{isGenericModalOpen && typeOfModal === GENERIC_MODAL_ERROR && (
+				<GenericModal
+					title="Error!"
+					text="Ocurrio un error al enviar los datos. Intente mas tarde."
+					path="/"
+					btnText="Volver al inicio"
+				></GenericModal>
+			)}
 			{homepage && (
 				<main className="section">
 					<div className="section-center">

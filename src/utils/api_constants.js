@@ -1,3 +1,7 @@
+// Util Constants:
+export const GENERIC_MODAL_SUCCESS = "GENERIC_MODAL_SUCCESS";
+export const GENERIC_MODAL_ERROR = "GENERIC_MODAL_ERROR";
+
 // BaseURL:
 export const API_BASE_URL = "https://barmanwebsite.herokuapp.com/api/v1";
 

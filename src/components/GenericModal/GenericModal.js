@@ -4,7 +4,14 @@ import { Link } from "react-router-dom";
 
 import { useGenericModalContext } from "../../context/GenericModalContext";
 
-const GenericModal = ({ title, text, path, btnText, externalUrl }) => {
+const GenericModal = ({
+	title,
+	text,
+	path,
+	btnText,
+	externalUrl,
+	externalUrlBtnText,
+}) => {
 	const { isGenericModalOpen, closeGenericModal } = useGenericModalContext();
 
 	return (
@@ -18,14 +25,16 @@ const GenericModal = ({ title, text, path, btnText, externalUrl }) => {
 						<p>
 							{text}
 							{"\n"}
-							<a
-								className="external-url"
-								href={externalUrl}
-								target="_blank"
-								rel="noreferrer"
-							>
-								Ver Deploy!
-							</a>
+							{externalUrl && (
+								<a
+									className="external-url"
+									href={externalUrl}
+									target="_blank"
+									rel="noreferrer"
+								>
+									{externalUrlBtnText}
+								</a>
+							)}
 						</p>
 						<div className="btn-container">
 							<Link
